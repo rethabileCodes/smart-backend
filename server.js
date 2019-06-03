@@ -22,7 +22,7 @@ mongoose.connect(DB_STRING,{useNewUrlParser:true}, (err)=>{
 
 const app = express();
 app.use(cors());
-// app.use(express.static(path.join(__dirname, './client/build')));
+
 
 
 
@@ -30,9 +30,6 @@ applyMiddleware(app);
 includeRoutes(app);
 
 
-app.get('*',(req,res,next)=>{
-    res.sendFile(path.join(__dirname + '/client/build/index.html'));
-   });
 
 
 
