@@ -15,7 +15,7 @@ mongoose.connect(DB_STRING,{useNewUrlParser:true}, (err)=>{
     if (!err){
         console.log('connection to smartlockers database successfully established')
     }else{
-        console.log('failed to establish connection to linqup database')
+        console.log('failed to establish connection to lockers  database')
     }
 });
 
