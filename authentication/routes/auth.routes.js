@@ -6,36 +6,47 @@ const User = require('../../models/User');
 
 
 router.post('/register', (req,res,next)=>{
+
     let newUser = new User();
 
     if(req.body.firstname){
         newUser.firstname = req.body.firstname;
+        if(req.body.lastname){
+            newUser.lastname = req.body.lastname;
+    
+            if (req.body.email){
+                newUser.email = req.body.email;
+        
+                if (req.body.password){
+                    newUser.password = req.body.password;
+
+
+
+                    newUser.save( (err,doc)=>{
+                        if (err) return next(err);
+
+                        console.log("user registered success")
+
+                        return res.json(doc);
+                    })
+
+
+                }else{
+                    return res.status(401).json({message:'please provide password'})
+                }
+            }
+            else{
+                return res.status(401).json({message:'please provide email address'})
+            }
+        }
     }
 
-    if(req.body.lastname){
-        newUser.lastname = req.body.lastname;
-    }
+    
 
-    if (req.body.email){
-        newUser.email = req.body.email;
-    }
-    else{
-        return res.status(401).json({message:'please provide email address'})
-    }
+    
 
-    if (req.body.password){
-        newUser.password = req.body.password;
-    }else{
-        return res.status(401).json({message:'please provide password'})
-    }
+  
 
-    newUser.save( (err,doc)=>{
-        if (err) return next(err);
-
-        console.log("user registered success")
-
-        return res.json(doc);
-    })
 })
 
 router.post('/login', (req,res,next) =>{
