@@ -43,7 +43,11 @@ router.post('/register', (req,res,next)=>{
             else{
                 return res.status(401).json({message:'please provide email address'})
             }
+        }else{
+            return res.status(401).json({message:'please provide lastname'})
         }
+    }else{
+        return res.status(401).json({message:'please provide firstname'})
     }
 
     
