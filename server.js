@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const applyMiddleware = require('./config/middleware');
 const includeRoutes = require('./routes');
 const path = require('path');
-//const cors = require('cors');
+const cors = require('cors');
 
 const PORT = process.env.PORT || 3000
 //const DB_STRING = process.env.DB_STRING || "mongodb://localhost:27017/smartlockers";
@@ -35,7 +35,7 @@ var corsOptions = {
   }
 }
 
-//app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
 
 
