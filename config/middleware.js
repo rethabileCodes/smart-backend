@@ -13,5 +13,5 @@ module.exports= function(app){
     app.use(morgan('dev'));
     app.use(passport.initialize());
     app.use(passport.session());
-    app.use(cors());
+    app.use(cors({credentials: true, origin: true}));
 }
