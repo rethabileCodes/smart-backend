@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const applyMiddleware = require('./config/middleware');
 const includeRoutes = require('./routes');
 const path = require('path');
-const cors = require('cors');
+//const cors = require('cors');
 
 const PORT = process.env.PORT || 3000
 //const DB_STRING = process.env.DB_STRING || "mongodb://localhost:27017/smartlockers";
@@ -23,7 +23,7 @@ mongoose.connect(DB_STRING,{useNewUrlParser:true}, (err)=>{
 const app = express();
 
 //prefilght
-app.options('*', cors()) 
+//app.options('*', cors()) 
 var whitelist = ['http://localhost:3000']
 var corsOptions = {
   origin: function (origin, callback) {
