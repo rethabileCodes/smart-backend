@@ -3,7 +3,7 @@ const morgan = require('morgan');
 const session = require("express-session");
 const passport = require('passport');
 const express = require('express');
-
+const cors = require('cors');
 
 module.exports= function(app){
     app.use(express.static("public"));
@@ -13,4 +13,5 @@ module.exports= function(app){
     app.use(morgan('dev'));
     app.use(passport.initialize());
     app.use(passport.session());
+    app.use(cors());
 }
