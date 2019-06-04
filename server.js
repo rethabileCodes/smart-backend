@@ -21,6 +21,9 @@ mongoose.connect(DB_STRING,{useNewUrlParser:true}, (err)=>{
 
 
 const app = express();
+
+//prefilght
+app.options('/*', cors());
 var whitelist = ['http://localhost:3000']
 var corsOptions = {
   origin: function (origin, callback) {
