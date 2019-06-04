@@ -84,7 +84,7 @@ router.post('/logout', (req,res,next) =>{
 
 router.get('/me', (req,res,next) =>{
     console.log('me called')
-    return res.json(req.user);
+    return res.json(req.user ? req.user :false);
 
 });
 
