@@ -14,7 +14,8 @@ const LockerSchema = new Schema({
         bredth:{type:String}
     },
     state:{type:String, enum:['open','closed', 'blocked']},
-    isReserved:{type:Boolean, default:false}
+    isReserved:{type:Boolean, default:false},
+    isBooked:{type:Boolean, default:false}
 
 });
 

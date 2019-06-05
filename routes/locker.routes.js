@@ -27,10 +27,10 @@ router.post('/', (req,res,next)=>{
                 return res.json(createdLcoker);
             })
         }else{
-            return res.status(400).json({message:'Please Provide Locker Dimensions'});
+            return res.json({message:'Please Provide Locker Dimensions'});
         }
     }else{
-       return res.status(400).json({message:'Please Provide Locker ID'});
+       return res.json({message:'Please Provide Locker ID'});
     }
 });
 
