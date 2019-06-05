@@ -89,4 +89,34 @@ router.get('/available', (req,res,next)=>{
 });
 
 
+//Get All Reserved Lockers
+router.get('/reserved', (req,res,next)=>{
+    Locker.find({isReserved:true}, (err, freeLockers)=>{
+        if (err) return next(err);
+        return res.json(freeLockers);
+    });
+});
+
+//Get User Reserved Lockers
+router.get('/reserved/:userId', (req,res,next)=>{
+    Locker.find({isReserved:true,depositor:req.params.userId}, (err, freeLockers)=>{
+        if (err) return next(err);
+        return res.json(freeLockers);
+    });
+});
+
+
+//Get Booked For maitenance
+
+router.get('/maintained', (req,res,next)=>{
+    Locker.find({isBooked:true}, (err, freeLockers)=>{
+        if (err) return next(err);
+        return res.json(freeLockers);
+    });
+});
+
+
+
+
+
 module.exports= router;
